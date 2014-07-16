@@ -1,5 +1,6 @@
 package com.petsitterfinder.datamodel;
 
+import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
@@ -75,8 +76,22 @@ public class PetSitter extends ParseObject {
 		return getInt("zip");
 	}
 	
+	//description
+	public void setDescription(String description) {
+		put("description", description);
+	}
+	
+	public String getDescription() {
+		return getString("description");
+	}
+	
+	
 	public static void getPetSitter(String id, GetCallback<PetSitter> callback) {
 		ParseQuery<PetSitter> query = ParseQuery.getQuery(PetSitter.class);
 		query.getInBackground(id, callback);	
+	}
+	
+	public static void getFilteredSitters(ParseQuery<PetSitter> query, FindCallback<PetSitter> callback) {
+		query.findInBackground(callback);
 	}
 }

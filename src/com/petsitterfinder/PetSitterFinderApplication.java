@@ -7,6 +7,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.petsitterfinder.datamodel.Pet;
+import com.petsitterfinder.datamodel.PetSitter;
 
 public class PetSitterFinderApplication extends Application {
 
@@ -31,6 +32,7 @@ public class PetSitterFinderApplication extends Application {
 
 	private void registerParseClasses() {
 		ParseObject.registerSubclass(Pet.class);
+		ParseObject.registerSubclass(PetSitter.class);
 	}
 
 	private void initializeParseKeys() {

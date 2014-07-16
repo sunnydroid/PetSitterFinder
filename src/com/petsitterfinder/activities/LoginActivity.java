@@ -21,4 +21,10 @@ public class LoginActivity extends Activity {
 		i.putExtra("mode", "Edit");
 		startActivity(i);
 	}
+	
+	public void onSeachSitters(View v) {
+		Intent i = new Intent(this, SitterSearchResult.class);
+		i.putExtra("houseCalls", "true");
+		startActivity(i);
+	}
 }

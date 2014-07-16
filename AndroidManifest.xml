@@ -10,7 +10,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
+
     <application
         android:name="com.petsitterfinder.PetSitterFinderApplication"
         android:allowBackup="true"
@@ -29,6 +29,10 @@
         <activity
             android:name="com.petsitterfinder.activities.ProfileActivity"
             android:label="@string/title_activity_profile" >
+        </activity>
+        <activity
+            android:name="com.petsitterfinder.PetProfileActivity"
+            android:label="@string/title_activity_pet_profile" >
         </activity>
     </application>
 

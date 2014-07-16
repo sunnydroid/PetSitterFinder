@@ -1,5 +1,7 @@
 package com.petsitterfinder.datamodel;
 
+import android.text.style.SuperscriptSpan;
+
 import com.parse.GetCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseException;
@@ -27,7 +29,7 @@ public class Pet extends ParseObject {
 		put("basicTraining", basicTraining);
 	}
 	
-	public Boolean getbasicTraining() {
+	public Boolean getBasicTraining() {
 		return getBoolean("basicTraining");
 	}
 	
@@ -94,19 +96,17 @@ public class Pet extends ParseObject {
 		return getString("description");
 	}
 	
-	public void getPet(String id) {
+	//profileImgUrl
+	public void setProfileImgUrl(String profileImgUrl) {
+		put("profileImgUrl", profileImgUrl);
+	}
+	
+	public String getProfileImgUrl() {
+		return getString("profileImgUrl");
+	}
+	
+	public static void getPet(String id, GetCallback<Pet> callback) {
 		ParseQuery<Pet> query = ParseQuery.getQuery(Pet.class);
-		query.getInBackground(id, new GetCallback<Pet>() {
-			
-			@Override
-			public void done(Pet arg0, ParseException e) {
-				if(e == null) {
-					//got the pet
-				}
-				else {
-					//throw some exception
-				}
-			}
-		});	
+		query.getInBackground(id, callback);	
 	}
 }

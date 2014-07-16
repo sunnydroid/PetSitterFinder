@@ -1,20 +1,36 @@
 package com.petsitterfinder;
-import com.parse.Parse;
-
 import android.app.Application;
+
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.parse.Parse;
+import com.parse.ParseObject;
+import com.petsitterfinder.datamodel.Pet;
 
 public class PetSitterFinderApplication extends Application {
 
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		initializeParseKeys();
 		registerParseClasses();
+		initializeParseKeys();
+		loadImageLoader();
+	}
 
+	private void loadImageLoader() {
+		// Create global configuration and initialize ImageLoader with this configuration
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().
+        		cacheInMemory().cacheOnDisc().build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+            .defaultDisplayImageOptions(defaultOptions)
+            .build();
+        ImageLoader.getInstance().init(config);
+		
 	}
 
 	private void registerParseClasses() {
-
+		ParseObject.registerSubclass(Pet.class);
 	}
 
 	private void initializeParseKeys() {

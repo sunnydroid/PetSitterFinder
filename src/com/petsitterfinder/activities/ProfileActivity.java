@@ -18,7 +18,6 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.petsitterfinder.R;
-import com.petsitterfinder.SearchActivity;
 import com.petsitterfinder.datamodel.Pet;
 
 public class ProfileActivity extends Activity {

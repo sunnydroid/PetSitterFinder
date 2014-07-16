@@ -31,7 +31,7 @@
             android:label="@string/title_activity_profile" >
         </activity>
         <activity
-            android:name="com.petsitterfinder.SearchActivity"
+            android:name="com.petsitterfinder.activities.SearchActivity"
             android:label="@string/title_activity_search" >
         </activity>    
         <activity

@@ -1,5 +1,8 @@
 package com.petsitterfinder;
 import com.parse.Parse;
+import com.parse.ParseObject;
+import com.petsitterfinder.datamodel.PetSitter;
+import com.petsitterfinder.datamodel.User;
 
 import android.app.Application;
 
@@ -14,7 +17,8 @@ public class PetSitterFinderApplication extends Application {
 	}
 
 	private void registerParseClasses() {
-
+		ParseObject.registerSubclass(User.class);
+		ParseObject.registerSubclass(PetSitter.class);
 	}
 
 	private void initializeParseKeys() {

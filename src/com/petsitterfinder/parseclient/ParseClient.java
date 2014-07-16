@@ -1,5 +1,6 @@
 package com.petsitterfinder.parseclient;
 
-public class ParseClient {
 
+public class ParseClient {
+	
 }

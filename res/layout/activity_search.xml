@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Zip" />
+
+    <EditText
+        android:id="@+id/etZipSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/textView1"
+        android:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+     <TextView
+        android:id="@+id/tvSearchRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/etZipSearch"
+        android:text="Within" />
+     
+    <RadioGroup
+        android:id="@+id/rgSearchRadius"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:layout_below="@id/tvSearchRadius" >
+
+        <RadioButton
+            android:id="@+id/rb10miles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="10 Miles" />
+
+        <RadioButton
+            android:id="@+id/rb25miles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="25 Miles" />
+
+        <RadioButton
+            android:id="@+id/rb40miles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="40 Miles" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tvStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/rgSearchRadius"
+        android:text="Start Date" />
+    
+    <DatePicker 
+        android:id="@+id/dpStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:layout_below="@id/tvStartDate"/>
+    
+     <TextView
+        android:id="@+id/tvEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/dpStartDate"
+        android:text="End Date" />
+    
+    <DatePicker 
+        android:id="@+id/dpEndDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:calendarViewShown="false"
+        android:layout_below="@id/tvEndDate"/>
+
+    <Button
+        android:id="@+id/btnSearch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/dpEndDate"                
+        android:onClick="onSearch"
+        android:text="Search" />
+
+</RelativeLayout>

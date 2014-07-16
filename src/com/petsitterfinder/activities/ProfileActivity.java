@@ -3,6 +3,8 @@ package com.petsitterfinder.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,10 +18,8 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.petsitterfinder.R;
-import com.petsitterfinder.datamodel.Pet;
-
-import com.petsitterfinder.R;
 import com.petsitterfinder.SearchActivity;
+import com.petsitterfinder.datamodel.Pet;
 
 public class ProfileActivity extends Activity {
 

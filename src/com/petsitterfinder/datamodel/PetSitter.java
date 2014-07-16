@@ -94,4 +94,10 @@ public class PetSitter extends ParseObject {
 	public static void getFilteredSitters(ParseQuery<PetSitter> query, FindCallback<PetSitter> callback) {
 		query.findInBackground(callback);
 	}
+	
+	@Override
+	public String toString() {
+		String stringfied = this.getString("name");
+		return stringfied;
+	}
 }

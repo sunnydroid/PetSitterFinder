@@ -33,6 +33,18 @@
         <activity
             android:name="com.petsitterfinder.SearchActivity"
             android:label="@string/title_activity_search" >
+        </activity>    
+        <activity
+            android:name="com.petsitterfinder.PetProfileActivity"
+            android:label="@string/title_activity_pet_profile" >
+        </activity>
+        <activity
+            android:name="com.petsitterfinder.activities.CreatePetProfile"
+            android:label="@string/title_activity_create_pet_profile" >
+        </activity>
+        <activity
+            android:name="com.petsitterfinder.activities.SitterSearchResult"
+            android:label="@string/title_activity_sitter_search_result" >
         </activity>
     </application>
 

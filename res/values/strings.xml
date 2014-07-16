@@ -5,5 +5,9 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_profile">ProfileActivity</string>
     <string name="title_activity_search">SearchActivity</string>
+    <string name="title_activity_pet_profile">PetProfileActivity</string>
+    <string name="label_spayed_neutered">Spayed/Neutered</string>
+    <string name="title_activity_create_pet_profile">CreatePetProfile</string>
+    <string name="title_activity_sitter_search_result">SitterSearchResult</string>
 
 </resources>

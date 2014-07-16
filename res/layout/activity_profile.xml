@@ -4,9 +4,111 @@
     android:layout_height="match_parent"
     tools:context="${packageName}.${activityClass}" >
 
+    <ImageView
+        android:id="@+id/ivProfileImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" 
+        android:layout_width="150dp"
+        android:layout_height="150dp"/>
+
     <TextView
+        android:id="@+id/tvPetName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/ivProfileImage"
+        android:text="Pet name here" />
+
+    <TextView
+        android:id="@+id/tvPetBreed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvPetName"
+        android:layout_below="@+id/tvPetName"
+        android:layout_marginTop="20dp"
+        android:text="Breed here" />
+
+    <TextView
+        android:id="@+id/tvAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvPetName"
+        android:layout_below="@+id/tvPetBreed"
+        android:layout_marginTop="20dp"
+        android:text="age here" />
+
+    <RatingBar
+        android:id="@+id/rbPetRating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivProfileImage"
+        android:layout_alignLeft="@+id/tvAge"
+        android:numStars="5"
+        android:stepSize="1" />
+
+    <CheckBox
+        android:id="@+id/cbHouseBroken"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ivProfileImage"
+        android:layout_marginTop="15dp"
+        android:padding="1dp"
+        android:text="House Broken" />
+
+    <CheckBox
+        android:id="@+id/cbSpayed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cbHouseBroken"
+        android:layout_alignBottom="@+id/cbHouseBroken"
+        android:layout_toRightOf="@+id/ivProfileImage"
+        android:padding="1dp"
+        android:text="@string/label_spayed_neutered" />
+
+    <CheckBox
+        android:id="@+id/cbBasicCommands"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/cbHouseBroken"
+        android:padding="1dp"
+        android:text="Basic Commands" />
+
+    <CheckBox
+        android:id="@+id/cbAggressive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cbBasicCommands"
+        android:layout_alignBottom="@+id/cbBasicCommands"
+        android:layout_alignLeft="@+id/cbSpayed"
+        android:padding="1dp"
+        android:text="Aggressive" />
+
+    <TextView
+        android:id="@+id/tvPetDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cbBasicCommands"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        android:text="Lost and lost of text here to describe a pet. Give details about the owner also just in case. More text for padding." />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:onClick="onSubmit"
+        android:text="Submit" />
 
 </RelativeLayout>

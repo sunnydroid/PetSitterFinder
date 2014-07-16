@@ -1,10 +1,7 @@
 package com.petsitterfinder.datamodel;
 
-import android.text.style.SuperscriptSpan;
-
 import com.parse.GetCallback;
 import com.parse.ParseClassName;
-import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 

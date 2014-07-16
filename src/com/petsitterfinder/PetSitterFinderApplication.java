@@ -1,4 +1,5 @@
 package com.petsitterfinder;
+
 import android.app.Application;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;

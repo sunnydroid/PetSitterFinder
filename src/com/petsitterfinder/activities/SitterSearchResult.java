@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ListView;
 
@@ -29,12 +30,7 @@ public class SitterSearchResult extends Activity {
 		aaSearchResults = new SearchResultArrayAdapter(this, sitters);
 		lvResults.setAdapter(aaSearchResults);
 		
-		ParseQuery <PetSitter> query = ParseQuery.getQuery(PetSitter.class);
-		if("true".equals(getIntent().getStringExtra("houseCalls"))) {
-			query.whereEqualTo("houseCalls", true);
-		}
-		
-		PetSitter.getFilteredSitters(query, new FindCallback<PetSitter>() {
+		PetSitter.getFilteredSitters(buildQuery(getIntent()), new FindCallback<PetSitter>() {
 
 			@Override
 			public void done(List<PetSitter> list, ParseException e) {
@@ -44,5 +40,13 @@ public class SitterSearchResult extends Activity {
 				}
 			}
 		});
+	}
+	
+	private ParseQuery<PetSitter> buildQuery(Intent i) {
+		ParseQuery<PetSitter> query = ParseQuery.getQuery(PetSitter.class);
+		if("true".equals(i.getStringExtra("houseCalls"))) {
+			query.whereEqualTo("houseCalls", true);
+		}
+		return query;
 	}
 }

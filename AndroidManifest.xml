@@ -65,7 +65,16 @@
             android:name="com.petsitterfinder.activities.NotificationActivity"
             android:label="@string/title_activity_notification" >
         </activity>
+        <activity
+            android:name="com.petsitterfinder.activities.MessageActivity"
+            android:label="@string/title_activity_message" >
+        </activity>
 
+        <activity
+            android:name="com.petsitterfinder.activities.SitterProfileActivity"
+            android:label="@string/title_activity_sitter_profile" >
+        </activity>
+        
         <service android:name="com.parse.PushService" />
 
         <receiver android:name="com.parse.ParseBroadcastReceiver" >
@@ -85,10 +94,6 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name="com.petsitterfinder.activities.MessageActivity"
-            android:label="@string/title_activity_message" >
-        </activity>
     </application>
 
 </manifest>

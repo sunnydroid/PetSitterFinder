@@ -138,12 +138,7 @@ public class ProfileActivity extends Activity {
 	public void onSubmit(View v) {
 		myPet.saveInBackground();
 	}
-	
-	public void onTestNotification(View v) {
-		Intent i = new Intent(this, MessageActivity.class);
-		i.putExtra("userId", userId);
-		startActivityForResult(i, 20);
-	}
+
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

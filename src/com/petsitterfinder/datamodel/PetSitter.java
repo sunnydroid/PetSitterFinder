@@ -5,6 +5,7 @@ import com.parse.GetCallback;
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 @ParseClassName("PetSitter")
 public class PetSitter extends ParseObject {
@@ -13,13 +14,18 @@ public class PetSitter extends ParseObject {
 		super();
 	}
 	
-	//city
-	public void setAge(int age) {
-		put("age", age);
+	//id
+	public String getId() {
+		return getString("objectId");
 	}
 	
-	public int getAge() {
-		return getInt("age");
+	//city
+	public void setCity(int city) {
+		put("city", city);
+	}
+	
+	public String getCity() {
+		return getString("city");
 	}
 	
 	//houseCalls
@@ -84,7 +90,6 @@ public class PetSitter extends ParseObject {
 	public String getDescription() {
 		return getString("description");
 	}
-	
 	
 	public static void getPetSitter(String id, GetCallback<PetSitter> callback) {
 		ParseQuery<PetSitter> query = ParseQuery.getQuery(PetSitter.class);

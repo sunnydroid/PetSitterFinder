@@ -1,0 +1,86 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${packageName}.${activityClass}" >
+
+<ImageView
+        android:id="@+id/ivSitterProfileImage"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" 
+        android:layout_width="150dp"
+        android:layout_height="150dp"/>
+
+    <TextView
+        android:id="@+id/tvSitterName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/ivSitterProfileImage"
+        android:text="Sitters name here" />
+
+    <TextView
+        android:id="@+id/tvSitterCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvSitterName"
+        android:layout_below="@+id/tvSitterName"
+        android:layout_marginTop="20dp"
+        android:text="City" />
+
+
+    <RatingBar
+        android:id="@+id/rbSitterRating"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivSitterProfileImage"
+        android:layout_alignLeft="@+id/tvSitterName"
+        android:numStars="5"
+        android:stepSize="1" />
+
+    <CheckBox
+        android:id="@+id/cbOverNight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/ivSitterProfileImage"
+        android:layout_marginTop="15dp"
+        android:padding="1dp"
+        android:text="Over Night" />
+
+    <CheckBox
+        android:id="@+id/cbHouseCalls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/cbOverNight"
+        android:layout_alignBottom="@+id/cbOverNight"
+        android:layout_toRightOf="@+id/ivSitterProfileImage"
+        android:padding="1dp"
+        android:text="House Calls" />
+
+    <TextView
+        android:id="@+id/tvSitterDetails"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/cbOverNight"
+        android:layout_marginTop="16dp"
+        android:padding="5dp"
+        android:text="Lost and lost of text here to describe a Sitter. Give details about other services offered also just in case. More text for padding." />
+
+    <Button
+        android:id="@+id/btnContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:onClick="onContact"
+        android:text="Contact" />
+
+</RelativeLayout>

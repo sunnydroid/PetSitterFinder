@@ -51,7 +51,7 @@ public class LoginActivity extends Activity {
 	private void setupSubscriptionChannel(ParseUser user) {
 		Set<String> subscriptionChannels = PushService.getSubscriptions(getApplicationContext());
 		/* If user's channel is not added, add it */
-		String userChannel = user.getUsername();
+		String userChannel = user.getObjectId();
 		if(!subscriptionChannels.contains(userChannel)) {
 			PushService.subscribe(getApplicationContext(), userChannel, NotificationActivity.class);
 		}
@@ -59,7 +59,7 @@ public class LoginActivity extends Activity {
 	
 	private void showUserProfile(ParseUser pUser) {
 		Intent i = new Intent(this, ProfileActivity.class);
-		String userId = pUser.getUsername();
+		String userId = pUser.getObjectId();
 		i.putExtra("userId", userId);
 		startActivity(i);
 	}

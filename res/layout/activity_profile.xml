@@ -111,14 +111,4 @@
         android:onClick="onSubmit"
         android:text="Submit" />
 
-    <Button
-        android:id="@+id/btnTestPush"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btnSubmit"
-        android:layout_alignLeft="@+id/btnSubmit"
-        android:layout_marginBottom="24dp"
-        android:onClick="onTestNotification"
-        android:text="Test Push Notification" />
-
 </RelativeLayout>

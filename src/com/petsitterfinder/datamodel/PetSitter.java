@@ -16,7 +16,7 @@ public class PetSitter extends ParseObject {
 	
 	//id
 	public String getId() {
-		return getString("objectId");
+		return getObjectId();
 	}
 	
 	//city
@@ -89,6 +89,10 @@ public class PetSitter extends ParseObject {
 	
 	public String getDescription() {
 		return getString("description");
+	}
+	
+	public ParseUser getPUser() {
+		return getParseUser("pUser");
 	}
 	
 	public static void getPetSitter(String id, GetCallback<PetSitter> callback) {

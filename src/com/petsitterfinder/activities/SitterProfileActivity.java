@@ -9,6 +9,7 @@ import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.parse.GetCallback;
@@ -32,6 +33,7 @@ public class SitterProfileActivity extends Activity {
 	Button btnContact;
 	PetSitter petSitter;
 	String sitterId;
+	String sitterParseId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -50,37 +52,41 @@ public class SitterProfileActivity extends Activity {
 		btnContact = (Button) findViewById(R.id.btnContact);
 		
 		sitterId = getIntent().getStringExtra("sitterId");
-		
-		PetSitter.getPetSitter(sitterId, new GetCallback<PetSitter>() {
-			@Override
-			public void done(PetSitter sitter, ParseException e) {
-				if(e == null) {
-					petSitter = sitter;
-					
-					tvSitterName.setText(petSitter.getName());
-					tvSitterCity.setText(petSitter.getCity());
-					
-					rbSitterRating.setRating(petSitter.getRating());
-					cbOverNight.setChecked(petSitter.getOverNight());
-					cbHouseCalls.setChecked(petSitter.getHouseCalls());
-					
-					tvSitterDetails.setText(petSitter.getDescription());
-					if(petSitter.getProfileImgUrl() != null && petSitter.getProfileImgUrl() != "") {
-						ImageLoader imgLoader = ImageLoader.getInstance();
-						imgLoader.displayImage(petSitter.getProfileImgUrl(), ivSitterProfileImage);
+		if(sitterId == null) {
+			Toast.makeText(this, "sitterId null", Toast.LENGTH_LONG).show();
+		} else {
+			PetSitter.getPetSitter(sitterId, new GetCallback<PetSitter>() {
+				@Override
+				public void done(PetSitter sitter, ParseException e) {
+					if(e == null) {
+						petSitter = sitter;
+						sitterParseId = sitter.getPUser().getObjectId();
+						
+						tvSitterName.setText(petSitter.getName());
+						tvSitterCity.setText(petSitter.getCity());
+						
+						rbSitterRating.setRating(petSitter.getRating());
+						cbOverNight.setChecked(petSitter.getOverNight());
+						cbHouseCalls.setChecked(petSitter.getHouseCalls());
+						
+						tvSitterDetails.setText(petSitter.getDescription());
+						if(petSitter.getProfileImgUrl() != null && petSitter.getProfileImgUrl() != "") {
+							ImageLoader imgLoader = ImageLoader.getInstance();
+							imgLoader.displayImage(petSitter.getProfileImgUrl(), ivSitterProfileImage);
+						}
 					}
+					
 				}
 				
-			}
-			
-		});
+			});
+		}
 		
 	}
 	
 	
 	public void onContact(View v) {
 		Intent i = new Intent(this, MessageActivity.class);
-		i.putExtra("userId", sitterId);
+		i.putExtra("userId", sitterParseId);
 		startActivityForResult(i, 20);
 	}
 }

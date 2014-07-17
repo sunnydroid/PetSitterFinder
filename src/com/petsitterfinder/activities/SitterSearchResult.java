@@ -22,7 +22,7 @@ import com.petsitterfinder.datamodel.PetSitter;
 
 public class SitterSearchResult extends Activity {
 
-	List<PetSitter> sitters;
+	ArrayList<PetSitter> sitters;
 	SearchResultArrayAdapter aaSearchResults;
 	ListView lvResults;
 	@Override
@@ -54,7 +54,8 @@ public class SitterSearchResult extends Activity {
 			public void onItemClick(AdapterView<?> parent, View v, int position,
 					long id) {
 				Intent i = new Intent(SitterSearchResult.this, SitterProfileActivity.class);
-				i.putExtra("sitterId", sitters.get(position).getId());
+				String sitterId = sitters.get(position).getId();
+				i.putExtra("sitterId", sitterId);
 				startActivity(i);
 			}
 		});

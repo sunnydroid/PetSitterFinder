@@ -5,8 +5,37 @@
     tools:context="${packageName}.${activityClass}" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="Hi, new request receivied!" />
+
+    <TextView
+        android:id="@+id/tvNotificationMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/btnNotInterested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnViewRequest"
+        android:layout_alignBottom="@+id/btnViewRequest"
+        android:layout_toRightOf="@+id/btnViewRequest"
+        android:text="Not Interested" />
+
+    <Button
+        android:id="@+id/btnViewRequest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNotificationMessage"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/tvNotificationMessage"
+        android:text="View" />
 
 </RelativeLayout>

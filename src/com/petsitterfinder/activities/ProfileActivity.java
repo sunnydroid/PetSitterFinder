@@ -6,14 +6,15 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.parse.GetCallback;
@@ -35,11 +36,12 @@ public class ProfileActivity extends Activity {
 	ImageView ivProfileImage;
 	Button btnSubmit;
 	Pet myPet;
-	String userId;
+	String petId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS); 
 		setContentView(R.layout.activity_profile);
 		
 		tvPetName = (TextView) findViewById(R.id.tvPetName);
@@ -54,10 +56,10 @@ public class ProfileActivity extends Activity {
 		ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
 		btnSubmit = (Button) findViewById(R.id.btnSubmit);
 		
-		userId = getIntent().getStringExtra("userId");
+		petId = getIntent().getStringExtra("petId");
 		String mode = getIntent().getStringExtra("mode");
 		
-		Pet.getPet(userId, new GetCallback<Pet>() {
+		Pet.getPet(petId, new GetCallback<Pet>() {
 
 			@Override
 			public void done(Pet pet, ParseException e) {
@@ -160,5 +162,13 @@ public class ProfileActivity extends Activity {
 	public void onSearch(MenuItem mi) {
 		Intent i = new Intent(this, SearchActivity.class);
 		startActivity(i);
+	}
+	
+	public void showProgressBar() {
+		setProgressBarIndeterminateVisibility(true);
+	}
+
+	public void hideProgressBar() {
+		setProgressBarIndeterminateVisibility(false);
 	}
 }

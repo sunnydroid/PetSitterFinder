@@ -12,14 +12,6 @@
         android:layout_alignParentTop="true"
         android:text="To: " />
 
-    <TextView
-        android:id="@+id/tvRecipent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/tvTo"
-        android:text="Recipent" />
-
     <EditText
         android:id="@+id/etMessage"
         android:layout_width="wrap_content"
@@ -41,5 +33,13 @@
         android:layout_centerHorizontal="true"
         android:onClick="onSendMessage"
         android:text="Send Message" />
+
+    <TextView
+        android:id="@+id/tvRecipent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etMessage"
+        android:layout_toRightOf="@+id/tvTo"
+        android:text="Recipent" />
 
 </RelativeLayout>

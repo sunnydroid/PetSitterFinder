@@ -7,11 +7,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -28,8 +27,8 @@ public class SitterSearchResult extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_sitter_search_result);
-		
 		lvResults = (ListView) findViewById(R.id.lvResults);
 		
 		sitters = new ArrayList<PetSitter>();
@@ -37,7 +36,7 @@ public class SitterSearchResult extends Activity {
 		lvResults.setAdapter(aaSearchResults);
 		
 		PetSitter.getFilteredSitters(buildQuery(getIntent()), new FindCallback<PetSitter>() {
-
+			
 			@Override
 			public void done(List<PetSitter> list, ParseException e) {
 				if(e == null) {
@@ -68,4 +67,12 @@ public class SitterSearchResult extends Activity {
 		}
 		return query;
 	}
+	
+    public void showProgressBar() {
+        setProgressBarIndeterminateVisibility(true); 
+    }
+    
+    public void hideProgressBar() {
+    	setProgressBarIndeterminateVisibility(false); 
+    }
 }

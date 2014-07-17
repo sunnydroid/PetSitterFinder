@@ -87,6 +87,7 @@ public class SitterProfileActivity extends Activity {
 	public void onContact(View v) {
 		Intent i = new Intent(this, MessageActivity.class);
 		i.putExtra("userId", sitterParseId);
+		i.putExtra("userName", petSitter.getName());
 		startActivityForResult(i, 20);
 	}
 }

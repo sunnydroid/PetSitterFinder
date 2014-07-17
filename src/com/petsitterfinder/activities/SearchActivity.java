@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -23,18 +24,19 @@ public class SearchActivity extends Activity {
 	RadioButton radius;
 	DatePicker startDate;
 	DatePicker endDate;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 		setContentView(R.layout.activity_search);
 	}
-	
+
 	public void onSearch(View v) {
 		Intent i = new Intent(this, SitterSearchResult.class);
 		startActivity(i);
- 	}
-	
+	}
+
 	private void setupViews() {
 		zip = (EditText) findViewById(R.id.etZipSearch);
 		RadioGroup rg = (RadioGroup) findViewById(R.id.rgSearchRadius);
@@ -42,12 +44,20 @@ public class SearchActivity extends Activity {
 		startDate = (DatePicker) findViewById(R.id.dpStartDate);
 		endDate = (DatePicker) findViewById(R.id.dpEndDate);
 	}
-	
+
 	private void executeSearch() throws ParseException {
 		ParseQuery<PetSitter> parseQuery = ParseQuery.getQuery(PetSitter.class);
 		List<PetSitter> petSitters = parseQuery.find();
-		for(PetSitter sitter : petSitters) {			
-			Log.d("info" , sitter.toString());
+		for (PetSitter sitter : petSitters) {
+			Log.d("info", sitter.toString());
 		}
 	}
+	
+    public void showProgressBar() {
+        setProgressBarIndeterminateVisibility(true); 
+    }
+    
+    public void hideProgressBar() {
+    	setProgressBarIndeterminateVisibility(false); 
+    }
 }

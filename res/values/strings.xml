@@ -9,5 +9,6 @@
     <string name="label_spayed_neutered">Spayed/Neutered</string>
     <string name="title_activity_create_pet_profile">CreatePetProfile</string>
     <string name="title_activity_sitter_search_result">SitterSearchResult</string>
+    <string name="title_activity_sitter_profile">SitterProfileActivity</string>
 
 </resources>

@@ -3,8 +3,10 @@ package com.petsitterfinder.activities;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.petsitterfinder.R;
+import com.petsitterfinder.SitterProfileActivity;
 import com.petsitterfinder.datamodel.PetSitter;
 
 public class SearchResultArrayAdapter extends ArrayAdapter<PetSitter> {
@@ -20,6 +23,8 @@ public class SearchResultArrayAdapter extends ArrayAdapter<PetSitter> {
 	ImageView ivProfileImage;
 	TextView tvName, tvDescription;
 	RatingBar rbResultRating;
+	
+	PetSitter petSitter;
 	
 	public SearchResultArrayAdapter(Context context,
 			List<PetSitter> objects) {
@@ -47,7 +52,7 @@ public class SearchResultArrayAdapter extends ArrayAdapter<PetSitter> {
 		tvDescription.setText("");
 		rbResultRating.setRating(0);
 		
-		PetSitter petSitter = getItem(position);
+		petSitter = getItem(position);
 		if(petSitter.getProfileImgUrl() != null && petSitter.getProfileImgUrl() != "") {
 			ImageLoader imgLoader = ImageLoader.getInstance();
 			imgLoader.displayImage(petSitter.getProfileImgUrl(), ivProfileImage);
@@ -56,6 +61,17 @@ public class SearchResultArrayAdapter extends ArrayAdapter<PetSitter> {
 		tvName.setText(petSitter.getName());
 		tvDescription.setText(petSitter.getDescription());
 		rbResultRating.setRating(petSitter.getRating());
+		
+		v.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				
+				Intent i = new Intent(getContext(), SitterProfileActivity.class);
+				i.putExtra("sitterId", petSitter.getId());
+				getContext().startActivity(i);
+			}
+		});
 		
 		return v;
 	}

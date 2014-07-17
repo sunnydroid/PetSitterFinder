@@ -13,13 +13,18 @@ public class PetSitter extends ParseObject {
 		super();
 	}
 	
-	//city
-	public void setAge(int age) {
-		put("age", age);
+	//id
+	public String getId() {
+		return getString("objectId");
 	}
 	
-	public int getAge() {
-		return getInt("age");
+	//city
+	public void setCity(int city) {
+		put("city", city);
+	}
+	
+	public String getCity() {
+		return getString("city");
 	}
 	
 	//houseCalls

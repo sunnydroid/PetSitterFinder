@@ -6,7 +6,10 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.parse.Parse;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.PushService;
+import com.petsitterfinder.activities.NotificationActivity;
 import com.petsitterfinder.datamodel.Pet;
 import com.petsitterfinder.datamodel.PetSitter;
 import com.petsitterfinder.datamodel.User;
@@ -19,6 +22,12 @@ public class PetSitterFinderApplication extends Application {
 		registerParseClasses();
 		initializeParseKeys();
 		loadImageLoader();
+		registerForPush();
+	}
+
+	private void registerForPush() {
+		PushService.setDefaultPushCallback(this, NotificationActivity.class);
+		ParseInstallation.getCurrentInstallation().saveInBackground();
 	}
 
 	private void loadImageLoader() {

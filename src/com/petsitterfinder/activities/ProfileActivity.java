@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.Toast;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -34,6 +35,7 @@ public class ProfileActivity extends Activity {
 	ImageView ivProfileImage;
 	Button btnSubmit;
 	Pet myPet;
+	String userId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,10 +54,10 @@ public class ProfileActivity extends Activity {
 		ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
 		btnSubmit = (Button) findViewById(R.id.btnSubmit);
 		
-		String petId = getIntent().getStringExtra("petId");
+		userId = getIntent().getStringExtra("userId");
 		String mode = getIntent().getStringExtra("mode");
 		
-		Pet.getPet(petId, new GetCallback<Pet>() {
+		Pet.getPet(userId, new GetCallback<Pet>() {
 
 			@Override
 			public void done(Pet pet, ParseException e) {
@@ -135,6 +137,22 @@ public class ProfileActivity extends Activity {
 	
 	public void onSubmit(View v) {
 		myPet.saveInBackground();
+	}
+	
+	public void onTestNotification(View v) {
+		Intent i = new Intent(this, MessageActivity.class);
+		i.putExtra("userId", userId);
+		startActivityForResult(i, 20);
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		/* First check result code */
+		if(resultCode == RESULT_OK) {
+			if(requestCode == 20) {
+				Toast.makeText(this, "Message Sent", Toast.LENGTH_SHORT).show();
+			}
+		}
 	}
 	
 	@Override

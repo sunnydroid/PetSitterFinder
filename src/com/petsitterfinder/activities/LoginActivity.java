@@ -1,5 +1,7 @@
 package com.petsitterfinder.activities;
 
+import java.util.Set;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +12,7 @@ import android.widget.Toast;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
+import com.parse.PushService;
 import com.petsitterfinder.R;
 import com.petsitterfinder.datamodel.User;
 
@@ -35,7 +38,8 @@ public class LoginActivity extends Activity {
 			
 			@Override
 			public void done(ParseUser user, ParseException e) {
-				if(user != null) {					
+				if(user != null) {
+					setupSubscriptionChannel(user);
 					showUserProfile(user);
 				} else {
 					Toast.makeText(getApplicationContext(), "Login Failure " + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -44,10 +48,19 @@ public class LoginActivity extends Activity {
 		});
 	}
 	
+	private void setupSubscriptionChannel(ParseUser user) {
+		Set<String> subscriptionChannels = PushService.getSubscriptions(getApplicationContext());
+		/* If user's channel is not added, add it */
+		String userChannel = user.getUsername();
+		if(!subscriptionChannels.contains(userChannel)) {
+			PushService.subscribe(getApplicationContext(), userChannel, NotificationActivity.class);
+		}
+	}
+	
 	private void showUserProfile(ParseUser pUser) {
 		Intent i = new Intent(this, ProfileActivity.class);
-		User user = new User(pUser);
-		i.putExtra("pUser", user);
+		String userId = pUser.getUsername();
+		i.putExtra("userId", userId);
 		startActivity(i);
 	}
 	

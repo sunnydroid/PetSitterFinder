@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.petsitterfinder.R;
@@ -61,17 +62,6 @@ public class SearchResultArrayAdapter extends ArrayAdapter<PetSitter> {
 		tvName.setText(petSitter.getName());
 		tvDescription.setText(petSitter.getDescription());
 		rbResultRating.setRating(petSitter.getRating());
-		
-		v.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				Intent i = new Intent(getContext(), SitterProfileActivity.class);
-				i.putExtra("sitterId", petSitter.getId());
-				getContext().startActivity(i);
-			}
-		});
 		
 		return v;
 	}

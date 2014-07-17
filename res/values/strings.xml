@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">PetSitterFinder</string>
+    <string name="app_name">Pet Sitter Finder</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_profile">ProfileActivity</string>
-    <string name="title_activity_search">SearchActivity</string>
-    <string name="title_activity_pet_profile">PetProfileActivity</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_search">Search</string>
+    <string name="title_activity_pet_profile">Pet Profile</string>
     <string name="label_spayed_neutered">Spayed/Neutered</string>
-    <string name="title_activity_create_pet_profile">CreatePetProfile</string>
-    <string name="title_activity_sitter_search_result">SitterSearchResult</string>
-    <string name="title_activity_notification">NotificationActivity</string>
-    <string name="title_activity_message">MessageActivity</string>
-    <string name="title_activity_sitter_profile">SitterProfileActivity</string>
+    <string name="title_activity_create_pet_profile">Create Pet Profile</string>
+    <string name="title_activity_sitter_search_result">Search Results</string>
+    <string name="title_activity_notification">Notification(s)</string>
+    <string name="title_activity_message">Create Message</string>
+    <string name="title_activity_sitter_profile">Sitter Profile</string>
 
 </resources>

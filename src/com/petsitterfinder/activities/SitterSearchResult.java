@@ -12,6 +12,7 @@ import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.petsitterfinder.R;
+import com.petsitterfinder.adapter.SearchResultArrayAdapter;
 import com.petsitterfinder.datamodel.PetSitter;
 
 public class SitterSearchResult extends Activity {
